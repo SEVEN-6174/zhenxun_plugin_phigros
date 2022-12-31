@@ -61,10 +61,10 @@ def savedata(data: Dict[str, Dict[str, str]], qq: int) -> None:
     qq:qq号
     return:None
     '''
-    wd = ''
+    wd: str = ''
     for song in data.keys():
         for lv in data[song].keys():
-            acc = data[song][lv]
+            acc: str = data[song][lv]
             wd += f'{song},{lv},{acc}\n'
     with open(data_path/f'{qq}.csv', 'w', encoding='utf-8') as f:
         f.write(wd)
@@ -157,7 +157,8 @@ def getrks(qq: int) -> float:
     rks /= 20
     return rks
 
-def get_info(qq:int,lv:str) -> Union[Dict[str,int],None]:
+
+def get_info(qq: int, lv: str) -> Union[Dict[str, int], None]:
     '''
     获取用户信息
     qq:qq号
@@ -170,8 +171,8 @@ def get_info(qq:int,lv:str) -> Union[Dict[str,int],None]:
         return None
     lv: str = lv.lower()
     all: int = 0
-    clear :int = 0
-    ap:int = 0
+    clear: int = 0
+    ap: int = 0
     if lv == 'all':
         for song in data.keys():
             for lvs in data[song].keys():
@@ -180,7 +181,7 @@ def get_info(qq:int,lv:str) -> Union[Dict[str,int],None]:
                     clear += 1
                 if float(data[song][lvs]) == 100:
                     ap += 1
-        return {'ALL':all,'clear':clear,'AP':ap}
+        return {'ALL': all, 'clear': clear, 'AP': ap}
     for song in data.keys():
         for lvs in data[song].keys():
             if lvs == lv:
@@ -189,4 +190,4 @@ def get_info(qq:int,lv:str) -> Union[Dict[str,int],None]:
                     clear += 1
                 if float(data[song][lvs]) == 100:
                     ap += 1
-    return {'ALL':all,'clear':clear,'AP':ap}        
+    return {'ALL': all, 'clear': clear, 'AP': ap}

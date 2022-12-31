@@ -13,9 +13,9 @@ def data_init() -> None:
     global data
     with open(res_path / 'data.csv', 'r', encoding='utf-8') as f:
         data_: str = f.read().lower()
-    each: list[str] = data_.split('\n')
+    each: List[str] = data_.split('\n')
     for i in each:
-        lis = i.split(',')
+        lis: List[str] = i.split(',')
         if lis == ['']:
             pass
         else:
@@ -33,8 +33,8 @@ def get_songdata(song_name: str, lv: str) -> Union[Dict[str, str], None]:
            None(找不到)
     '''
     try:
-        data_ = {'song': song_name, 'lv': lv,
-                 'ds': data[song_name][lv][0], 'notes': data[song_name][lv][1]}
+        data_: Dict[str, str] = {'song': song_name, 'lv': lv,
+                                 'ds': data[song_name][lv][0], 'notes': data[song_name][lv][1]}
     except KeyError:
         data_ = None
     return data_
