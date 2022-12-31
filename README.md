@@ -10,6 +10,8 @@ ui自己画的,比较丑
 
 具体功能看bot内的帮助
 
+至于曲绘NotFound什么的,resources/bg文件夹里面自己改,懒得弄了(
+
 ## 数据上传
 
 解压user.zip
