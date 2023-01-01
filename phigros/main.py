@@ -132,16 +132,18 @@ async def _(event: MessageEvent, arg: Message = CommandArg()) -> NoReturn:
     lv: str = arg[-2]
     acc: str = arg[-1]
     old: str = get_acc(qq, song, lv)
+    acc: float = float(acc)
     if old == None:
         await update.finish('出错了,可能是没有数据或歌名错误或等级错误')
+    old: float = float(old)
     if old >= acc and t:
         await update.finish('拒绝操作,旧数据大于等于新数据')
     if acc < 0 or acc > 100:
         await update.finish('acc在0到100之间')
+    acc: str = str(acc)
     if not changdata(qq, song, lv, acc):
         await update.finish('出错了,可能是没有数据或歌名错误或等级错误')
-    else:
-        await update.finish('更新成功')
+    await update.finish('更新成功')
 
 
 @best19.handle()
