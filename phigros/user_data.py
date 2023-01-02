@@ -61,10 +61,10 @@ def savedata(data: Dict[str, Dict[str, str]], qq: int) -> None:
     qq:qq号
     return:None
     '''
-    wd: str = ''
+    wd = ''
     for song in data.keys():
         for lv in data[song].keys():
-            acc: str = data[song][lv]
+            acc = data[song][lv]
             wd += f'{song},{lv},{acc}\n'
     with open(data_path/f'{qq}.csv', 'w', encoding='utf-8') as f:
         f.write(wd)
@@ -133,10 +133,13 @@ def getb19(qq: int) -> Tuple[Dict[str, float], Dict[str, float]]:
         b19[i] = rkslist[i]
         if j >= 19:
             break
+    ds_: int = 0
     for i in rkslist.keys():
         if get_acc(qq, i[:-3], i[-2:]) == '100':
-            phi1: Dict[str, float] = {i: float(getsongrks(i[:-3], i[-2:]))}
-            break
+            ds: int = int(getsongrks(song, lv))
+            if ds >= ds_:
+                ds_ = ds
+                phi1: Dict[str, float] = {i: float(getsongrks(i[:-3], i[-2:]))}
     return phi1, b19
 
 
