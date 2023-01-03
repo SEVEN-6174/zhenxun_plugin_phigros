@@ -133,10 +133,10 @@ def getb19(qq: int) -> Tuple[Dict[str, float], Dict[str, float]]:
         b19[i] = rkslist[i]
         if j >= 19:
             break
-    ds_: int = 0
+    ds_: float = 0.0
     for i in rkslist.keys():
         if get_acc(qq, i[:-3], i[-2:]) == '100':
-            ds: int = int(getsongrks(song, lv))
+            ds: float = float(getsongrks(i[:-3], i[-2:]))
             if ds >= ds_:
                 ds_ = ds
                 phi1: Dict[str, float] = {i: float(getsongrks(i[:-3], i[-2:]))}
