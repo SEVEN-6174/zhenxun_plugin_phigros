@@ -41,6 +41,7 @@ update: Type[Matcher] = on_command('更新数据', priority=5, block=True)
 best19: Type[Matcher] = on_command('/b19', priority=5, block=True)
 clear: Type[Matcher] = on_command('清理phi缓存', priority=5, block=True)
 info: Type[Matcher] = on_command('phi-info', priority=5, block=True)
+update_new: Type[Matcher] = on_command('版本数据更新', priority=5, block=True)
 
 user_data: Dict[int, list[str, str, str, str]] = {}
 
@@ -237,3 +238,11 @@ async def _(event: MessageEvent) -> None:
         await info.finish(MessageSegment.at(qq)+MessageSegment.image(temp_path/f'{qq}_info.png'))
     else:
         await info.finish(rt)
+
+
+@update_new.handle()
+async def _(event: MessageEvent) -> None:
+    qq: int = event.user_id
+    with open(data_path/f'{qq}.csv','a',encoding='utf-8') as f:
+        f.write('青丘,IN,0\n青丘,HD,0\n青丘,EZ,0\n')
+    await update.finish(MessageSegment.at(qq)+'您的数据已更新完毕\n警告:不要重复使用')

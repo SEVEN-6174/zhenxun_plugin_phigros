@@ -44,6 +44,11 @@ usage:
                 清理缓存
             例子:
                 清理phi缓存
+        版本数据更新:
+            说明:
+                将数据库中旧版本的“用户数据”更新
+            例子:
+                版本数据更新
     关于修改数据
         说明:
             第一次使用需要电脑(数据小的时候一个个传也可以)
@@ -72,10 +77,10 @@ usage:
             3.更新数据旧数据大于新数据时会拒绝，如果是自己手误可以加上强制参数
 """.strip()
 __plugin_des__: str = "Phigros 查分器"
-__plugin_cmd__: List[str] = ['清理phi缓存', 'phi-info',
+__plugin_cmd__: List[str] = ['版本数据更新', '清理phi缓存', 'phi-info',
                              'phi-chap', '/b19', '更新数据', '修改数据', '随首歌', "查歌曲", "查看所有歌曲名称"]
 __plugin_settings__: Dict[str, List[str]] = {
-    "cmd": ['清理phi缓存', 'phi-info', 'phi-chap', '/b19', '更新数据', '修改数据', '随首歌', "查歌曲", "查看所有歌曲名称"],
+    "cmd": __plugin_cmd__,
 }
 __plugin_type__: Tuple[str, int] = ("一些工具", 1)
 __plugin_version__: float = 0.1
