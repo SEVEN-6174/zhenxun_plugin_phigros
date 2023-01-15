@@ -245,4 +245,4 @@ async def _(event: MessageEvent) -> None:
     qq: int = event.user_id
     with open(data_path/f'{qq}.csv','a',encoding='utf-8') as f:
         f.write('青丘,IN,0\n青丘,HD,0\n青丘,EZ,0\n')
-    await update.finish(MessageSegment.at(qq)+'您的数据已更新完毕\n警告:不要重复使用')
+    await update.finish(MessageSegment.at(qq)+'您的数据已更新完毕')
