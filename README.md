@@ -23,3 +23,15 @@ ui自己画的,比较丑
 # 依赖安装
 
 `pip install Pillow==9.0.1`
+
+`pip install pycryptodome==3.18.0`
+
+# todo
+
+- [ ] 增加连接官方数据库获取玩家信息的功能
+
+# 部分代码来源
+
+Phi云存档解析[PihgrosLibrary](https://github.com/7aGiven/PhigrosLibrary)
+
+修改后[issue #3](https://github.com/SEVEN-6174/zhenxun_plugin_phigros/issues/3)
